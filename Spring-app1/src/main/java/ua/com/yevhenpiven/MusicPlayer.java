@@ -7,6 +7,7 @@ public MusicPlayer(Music music) {
 }
 public void playMusic() {
 	System.out.println("Playing "+music.getSong());
+	
 }
 
 }
