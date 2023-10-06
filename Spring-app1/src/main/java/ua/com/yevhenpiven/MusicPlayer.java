@@ -1,5 +1,8 @@
 package ua.com.yevhenpiven;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MusicPlayer {
 	public String name;
 	public int volume;
@@ -20,13 +23,20 @@ public int getVolume() {
 		this.volume = volume;
 	}
 
-private Music music;
-public void setMusic(Music music) {
-	this.music=music;
+private List<Music> musicList =new ArrayList<>();
+
+
+
+
+public void setMusicList(List<Music> musicList) {
+	this.musicList = musicList;
 }
 
 public void playMusic() {
-	System.out.println("Playing "+music.getSong() +", Name: "+name+", Volume: "+volume);
+	for (Music music : musicList) {
+		System.out.println("Playing "+music.getSong() +", Name: "+name+", Volume: "+volume);
+	}
+	
 	
 	
 }
