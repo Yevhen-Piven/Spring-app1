@@ -21,19 +21,17 @@
     </bean>
    
     <bean id="musicPlayer"
-          class="ua.com.yevhenpiven.MusicPlayer">
+          class="ua.com.yevhenpiven.MusicPlayer"
+          scope="prototype">
+          
         <property name="musicList"  >
         <list>
+        <ref bean="musicBeanRap"/>      
         
-        <ref bean="musicBeanRap"/>
-        
-        
-        <ref bean="musicBeanRock"/>
-        
+        <ref bean="musicBeanRock"/>        
         
         <ref bean="musicBeanClassical"/>
-        </list>
-       
+        </list>       
         </property>
          <property name="name" value="${musicPlayer.name}"/>
         <property name="volume" value="${musicPlayer.volume}"/>
