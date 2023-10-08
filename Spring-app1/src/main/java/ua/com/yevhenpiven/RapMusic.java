@@ -2,7 +2,7 @@ package ua.com.yevhenpiven;
 
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class RapMusic implements Music {
 	private RapMusic() {}
 	public static RapMusic getRapMusic() {
