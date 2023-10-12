@@ -2,36 +2,33 @@ package ua.com.yevhenpiven;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
 public class MusicPlayer {
-	//GenreOfMusic genreOfRockMusic = GenreOfMusic.ROCKMUSIC;
-	//GenreOfMusic genreOfClassicalMusic = GenreOfMusic.CLASSICALMUSIC;
-	ClassicalMusic classicalMusic;
-	RockMusic rockMusic;
+	@Value("${musicPlayer.name}")
+	private String name;
+	@Value("${musicPlayer.volume}")
+	private int volume;
+	public String getName() {
+		return name;
+	}
+	public int getVolume() {
+		return volume;
+	}
+	Music music1;
+	Music music2;
 
 
 	@Autowired
-	public MusicPlayer( RockMusic rockMusic,  ClassicalMusic classicalMusic ) {
-		this.classicalMusic=classicalMusic;
-		this.rockMusic=rockMusic;
-
+	public MusicPlayer(@Qualifier("classicalMusic") Music music1,  @Qualifier("rockMusic") Music music2 ) {
+		this.music1=music1;
+		this.music2=music2;
 	}
-	GenreOfMusic CLASSICALMUSIC;
-	GenreOfMusic ROCKMUSIC;
-	
-
-	public String playMusic(GenreOfMusic CLASSICALMUSIC) {
+		public String playMusic() {
+		return "Playing " + music1.getSong() +" "+music2.getSong();
 		
-		
-		if (CLASSICALMUSIC.equals(CLASSICALMUSIC)) {
-			
-		
-		return "Playing " + classicalMusic.getSong();}
-		else
-			
-			return "Playing " + rockMusic.getSong() ;
 
 	}
 }
