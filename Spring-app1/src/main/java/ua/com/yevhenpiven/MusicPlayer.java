@@ -11,17 +11,27 @@ public class MusicPlayer {
 	ClassicalMusic classicalMusic;
 	RockMusic rockMusic;
 
+
 	@Autowired
-	public MusicPlayer(@Qualifier("rockMusic") RockMusic rockMusic, @Qualifier("classicalMusic") ClassicalMusic classicalMusic ) {
+	public MusicPlayer( RockMusic rockMusic,  ClassicalMusic classicalMusic ) {
 		this.classicalMusic=classicalMusic;
 		this.rockMusic=rockMusic;
 
 	}
-
+	GenreOfMusic CLASSICALMUSIC;
+	GenreOfMusic ROCKMUSIC;
 	
 
-	public String playMusic(GenreOfMusic genreOfMusic) {
-		return "Playing " + rockMusic.getSong() ;
+	public String playMusic(GenreOfMusic CLASSICALMUSIC) {
+		
+		
+		if (CLASSICALMUSIC.equals(CLASSICALMUSIC)) {
+			
+		
+		return "Playing " + classicalMusic.getSong();}
+		else
+			
+			return "Playing " + rockMusic.getSong() ;
 
 	}
 }
