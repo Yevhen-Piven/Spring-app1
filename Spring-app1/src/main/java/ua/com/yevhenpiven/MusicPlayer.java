@@ -1,5 +1,8 @@
 package ua.com.yevhenpiven;
 
+import java.util.List;
+import java.util.Random;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -7,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 
 public class MusicPlayer {
+	
 	@Value("${musicPlayer.name}")
 	private String name;
 	@Value("${musicPlayer.volume}")
@@ -17,17 +21,26 @@ public class MusicPlayer {
 	public int getVolume() {
 		return volume;
 	}
-	Music music1;
-	Music music2;
+	ClassicalMusic classicalMusic;
+	RockMusic rockMusic;
+	RapMusic rapMusic;
+	
+	List<Music> listOfMusicGenre;
 
 
 	
-	public MusicPlayer(@Qualifier("classicalMusic") Music music1,  @Qualifier("rockMusic") Music music2 ) {
-		this.music1=music1;
-		this.music2=music2;
+	public MusicPlayer(List<Music> listOfMusicGenre ) {
+		this.listOfMusicGenre=listOfMusicGenre;
+		listOfMusicGenre.add(classicalMusic);
+		listOfMusicGenre.add(rockMusic);
+		listOfMusicGenre.add(rapMusic);
 	}
 		public String playMusic() {
-		return "Playing " + music1.getSong() +" "+music2.getSong();
+			
+			Random r=new Random();
+			int randomite=r.nextInt(listOfMusicGenre.size());
+			String randomMusic=listOfMusicGenre.get(randomite).getSong();
+		return "Playing " + randomMusic;
 		
 
 	}

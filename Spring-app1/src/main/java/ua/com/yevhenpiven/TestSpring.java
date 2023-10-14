@@ -1,5 +1,7 @@
 package ua.com.yevhenpiven;
 
+import java.util.List;
+
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -12,15 +14,19 @@ public class TestSpring {
 		
 		AnnotationConfigApplicationContext context=new AnnotationConfigApplicationContext(SpringConfig.class);
 		MusicPlayer musicPlayer=context.getBean("musicPlayer", MusicPlayer.class);
-		Computer computer	= context.getBean("computer", Computer.class);
-		System.out.println(computer.toString());
-		System.out.println(musicPlayer.getVolume());
-		System.out.println(musicPlayer.getName());
+	//	Computer computer	= context.getBean("computer", Computer.class);
+		//System.out.println(computer.toString());
+		//System.out.println(musicPlayer.getVolume());
+	//	System.out.println(musicPlayer.getName());
 		System.out.println(musicPlayer.playMusic());
 		
 		
 		
-		ClassicalMusic classicalMusic=context.getBean("classicalMusic", ClassicalMusic.class);
+	//	ClassicalMusic classicalMusic=context.getBean("classicalMusic", ClassicalMusic.class);
+		//RockMusic rockMusic=context.getBean("rockMusic", RockMusic.class);
+		//RapMusic rapMusic=context.getBean("rapMusic", RapMusic.class);
+		
+		
 		//ClassicalMusic classicalMusic2=context.getBean("classicalMusic", ClassicalMusic.class);
 		//System.out.println(classicalMusic==classicalMusic2);
 		//RockMusic rockMusic=context.getBean("rockMusic", RockMusic.class);

@@ -1,5 +1,9 @@
 package ua.com.yevhenpiven;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -16,13 +20,22 @@ public ClassicalMusic classicalMusic() {
 public RockMusic rockMusic() {
 	return new RockMusic();
 }
+@Bean 
+public RapMusic rapMusic() {
+	return new RapMusic ();
+}
+@Bean 
+public List<Music> listOfMusicGenre(){
+	return  Arrays.asList( classicalMusic(),  rockMusic(), rapMusic());
+}
 @Bean
 public MusicPlayer musicPlayer() {
-	return new MusicPlayer(classicalMusic(), rockMusic());
+	return new MusicPlayer( Arrays.asList( classicalMusic(),  rockMusic(), rapMusic()) 
+	);
 }
-@Bean
-public Computer computer() {
-	return new Computer(musicPlayer());
-}
+//@Bean
+//public Computer computer() {
+	//return new Computer(musicPlayer(listOfMusicGenre()));
+//}
 
 }
